@@ -1,9 +1,35 @@
 import * as React from "react";
-import { Text, StyleSheet, View } from "react-native";
+import { Text, StyleSheet, View, TextInput, TouchableOpacity, Alert  } from "react-native";
 import { Image } from "react-native";
 import { Color, FontSize, FontFamily, Border } from "./GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+import Home from "./Home";
 
 const LogIn = () => {
+  const [emailOrMobile, setEmailOrMobile] = React.useState('');
+  const [password, setPassword] = React.useState('');
+  const [emailInputValue, setEmailInputValue] = React.useState('');
+  const [passwordInputValue, setPasswordInputValue] = React.useState('');
+  const navigation = useNavigation();
+
+  const handleEmailSubmit = () => {
+    setEmailOrMobile(emailInputValue);
+    console.log(emailInputValue);
+  };
+
+  const handlePasswordSubmit = () => {
+    setPassword(passwordInputValue);
+    console.log(passwordInputValue);
+  };
+
+  const handleLogin = () => {
+    if (emailOrMobile === "" || password === "") {
+      Alert.alert("Please enter email or mobile number and password");
+    } else {
+      navigation.navigate("Home");
+    }
+  };
+
   return (
     <View style={styles.logIn2}>
       <Text style={[styles.hello, styles.helloLayout]}>Hello!</Text>
@@ -26,11 +52,18 @@ const LogIn = () => {
       <Text style={[styles.forgetPassword, styles.forgetPasswordTypo]}>
         Forget Password
       </Text>
-      <Text style={[styles.exampleexamplecom]}>
-        example@example.com
-      </Text>
+      <TextInput
+        style={[styles.exampleexamplecom]}
+        placeholder="example@example.com"
+        placeholderTextColor={Color.colorCornflowerblue}
+        onChangeText={text => setEmailInputValue(text)}
+        onSubmitEditing={handleEmailSubmit}
+        value={emailInputValue}
+      />
       <View style={[styles.groupView, styles.groupLayout]}>
-        <View style={[styles.groupInner, styles.groupLayout]} />
+      <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+      <View style={[styles.groupInner, styles.groupLayout]} />
+      </TouchableOpacity>
       </View>
       <Text style={[styles.logIn, styles.logInTypo]}>Log In</Text>
       <Text style={[styles.dontHaveAnContainer, styles.forgetPasswordTypo]}>
@@ -42,7 +75,15 @@ const LogIn = () => {
         contentFit="cover"
         source={require("../assets/vector1.png")}
       />
-      <Text style={[styles.text, styles.textTypo]}>*************</Text>
+      <TextInput
+        style={[styles.text, styles.textTypo]}
+        placeholder="*************"
+        placeholderTextColor={Color.colorCornflowerblue}
+        onChangeText={text => setPasswordInputValue(text)}
+        onSubmitEditing={handlePasswordSubmit}
+        value={passwordInputValue}
+        secureTextEntry={true}
+      />
     </View>
   );
 };
@@ -83,7 +124,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.leagueSpartanRegular,
     fontSize: FontSize.size_xl,
     textAlign: "left",
-    height: 14,
+    height: 20,
     position: "absolute",
   },
   groupLayout: {
@@ -140,7 +181,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     alignItems: "center",
     display: "flex",
-    capitalize: "uppercase",
+  
     
 
   },
@@ -182,7 +223,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     display: "flex",
     fontFamily: FontFamily.sans,
-    color: Color.colorCornflowerblue,
     fontSize: FontSize.size_xl,
   },
   groupInner: {

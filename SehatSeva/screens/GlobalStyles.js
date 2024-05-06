@@ -5,19 +5,20 @@ export const FontFamily = {
   };
 
   export const FontSize = {
+    size_xl: 20,
+    size_xs: 12,
     size_29xl: 48,
     size_5xl: 24,
-    size_xs: 12,
-    size_xl: 20,
   };
   /* Colors */
   export const Color = {
-    colorMediumslateblue: "#2260ff",
     colorWhite: "#fff",
+    colorMediumslateblue: "#2260ff",
+    colorBlack: "#000",
+    colorLightsteelblue: "#cad5ff",
     colorGray: "#070707",
     colorCornflowerblue: "#809cff",
     colorAliceblue: "#ecf1ff",
-    colorBlack: "#000",
   };
   /* Paddings */
   export const Padding = {
@@ -25,6 +26,6 @@ export const FontFamily = {
   };
   /* border radiuses */
   export const Border = {
-    br_11xl: 30,
+    br_11xl: 6,
     br_smi: 13,
   };

@@ -6,15 +6,15 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import Register from "./screens/Register";
 import LogIn from "./screens/login";
+import SignUp from "./screens/signup";
+import Home from "./screens/Home";
+
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(true);
-  const [fontsLoaded] = useFonts({
-    // Remove the font loading code
-  });
-
+  
   React.useEffect(() => {
     const timer = setTimeout(() => {
       setHideSplashScreen(false);
@@ -23,10 +23,7 @@ const App = () => {
     return () => clearTimeout(timer); // cleanup on unmount
   }, []);
 
-  const handleLogInPress = () => {
-    // Add logic to navigate to the Login screen
-    navigation.navigate("LogIn");
-  };
+  
 
   return (
     <NavigationContainer>
@@ -37,7 +34,10 @@ const App = () => {
       ) : (
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Register" component={Register} />
-          <Stack.Screen name="LogIn" component={LogIn} />
+          <Stack.Screen name="LogIn" component={LogIn} /> 
+          <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen name="Home" component={Home} />
+          
         </Stack.Navigator>
       )}
     </NavigationContainer>
