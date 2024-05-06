@@ -1,9 +1,11 @@
 import * as React from "react";
-import { Image } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import { StyleSheet, View, Text } from "react-native";
 import { Border, FontFamily, FontSize, Color } from "./GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
 
 const Register = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.register}>
       <View style={styles.frame}>
@@ -19,18 +21,19 @@ const Register = () => {
         >{`kuch na kuch to likhna padega yaha `}</Text>
       </View>
       <View style={styles.frame2}>
-        <View style={[styles.frame3, styles.frameFlexBox]}>
+        <TouchableOpacity style={[styles.frame3, styles.frameFlexBox]} onPress={() => navigation.navigate('LogIn')}>
           <View style={[styles.logInWrapper, styles.wrapperLayout]}>
             <Text style={[styles.logIn, styles.logInTypo]}>Log In</Text>
           </View>
-        </View>
-        <View style={[styles.frame4, styles.frameFlexBox]}>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.frame4, styles.frameFlexBox]} onPress={() => navigation.navigate('SignUp')}>
           <View style={[styles.signUpWrapper, styles.wrapperLayout]}>
             <Text style={[styles.signUp, styles.logInTypo]}>Sign Up</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
+
   );
 };
 
@@ -70,7 +73,7 @@ const styles = StyleSheet.create({
   loremIpsumDolor: {
     fontSize: 12,
     fontWeight: "300",
-    fontFamily: FontFamily.poppins,
+    fontFamily: FontFamily.sans,
     color: "#070707",
     marginTop: 98,
     textAlign: "center",
