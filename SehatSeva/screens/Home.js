@@ -84,7 +84,9 @@ const Home = () => {
         source={require("../assets/vector6.png")}
       />
       <View style={[styles.heading, styles.headingLayout]}>
-      <View style={[styles.headingChild, styles.headingLayout]} />
+      <TouchableOpacity onPress={() => navigation.navigate('SelectFamily')}>
+        <View style={[styles.headingChild, styles.headingLayout]} />
+      </TouchableOpacity>
       </View>
       <Text style={[styles.requestConsultation, styles.johnDoeTypo]}>
         Request consultation
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: 333,
     height: 230,
-    backgroundColor: Color.colorLightsteelblue,
+    backgroundColor: Color.colorLightsteelblue_200,
     position: "absolute",
   },
   maskGroupIcon: {
@@ -157,7 +159,7 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     width: 298,
     height: 33,
-    backgroundColor: Color.colorLightsteelblue,
+    backgroundColor: Color.colorLightsteelblue_200,
   },
   vectorIcon: {
     top: 113,
