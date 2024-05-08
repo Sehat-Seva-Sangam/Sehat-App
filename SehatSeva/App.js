@@ -3,12 +3,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import FirstScreen from "./screens/FirstScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View, Text, Pressable, TouchableOpacity } from "react-native";
 import Register from "./screens/Register";
 import LogIn from "./screens/login";
 import SignUp from "./screens/signup";
 import Home from "./screens/Home";
-
+import Message from "./screens/Message";
+import MessageScreen from "./screens/MessageScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -37,7 +37,8 @@ const App = () => {
           <Stack.Screen name="LogIn" component={LogIn} /> 
           <Stack.Screen name="SignUp" component={SignUp} />
           <Stack.Screen name="Home" component={Home} />
-          
+          {/* <Stack.Screen name="Message" component={Message} /> */}
+          <Stack.Screen name="MessageScreen" component={MessageScreen} />
         </Stack.Navigator>
       )}
     </NavigationContainer>

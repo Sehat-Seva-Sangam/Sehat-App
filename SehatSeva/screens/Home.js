@@ -1,16 +1,20 @@
 import * as React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, Pressable, TouchableOpacity } from "react-native";
 import { Image } from "react-native";
 import { FontFamily, Color, FontSize, Border } from "./GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+
 
 const Home = () => {
+
+  const navigation = useNavigation();
   return (
     <View style={styles.home}>
       <View style={styles.homeChild} />
       <Image
         style={[styles.maskGroupIcon, styles.homeItemPosition]}
         contentFit="cover"
-        source={require("../assets/mask-group.png")}
+        source={require("../assets/mask-group-gojo.png")}
       />
       <View style={[styles.homeItem, styles.homeItemPosition]} />
       <Image
@@ -24,7 +28,7 @@ const Home = () => {
         source={require("../assets/group-108.png")}
       />
       <Text style={styles.hiWelcomeback}>Hi, WelcomeBack</Text>
-      <Text style={[styles.johnDoe, styles.johnDoeTypo]}>John Doe</Text>
+      <Text style={[styles.johnDoe, styles.johnDoeTypo]}>Bhargav Patki</Text>
       <Image
         style={[styles.ellipseIcon, styles.homeChild1Layout]}
         contentFit="cover"
@@ -58,13 +62,17 @@ const Home = () => {
       <Image
         style={styles.vectorIcon3}
         contentFit="cover"
-        source={require("../assets/vector3.png")}
+        source={require("../assets/vector3-high.png")}
       />
-      <Image
-        style={[styles.vectorIcon4, styles.vectorIconPosition]}
-        contentFit="cover"
-        source={require("../assets/vector4.png")}
-      />
+      <Pressable 
+        onTouchStart={() => navigation.navigate('MessageScreen')}
+      >
+        <Image
+          style={[styles.vectorIcon4, styles.vectorIconPosition]}
+          contentFit="cover"
+          source={require("../assets/vector4.png")}
+        />
+      </Pressable>
       <Image
         style={[styles.vectorIcon5, styles.vectorIconPosition]}
         contentFit="cover"
@@ -76,7 +84,7 @@ const Home = () => {
         source={require("../assets/vector6.png")}
       />
       <View style={[styles.heading, styles.headingLayout]}>
-        <View style={[styles.headingChild, styles.headingLayout]} />
+      <View style={[styles.headingChild, styles.headingLayout]} />
       </View>
       <Text style={[styles.requestConsultation, styles.johnDoeTypo]}>
         Request consultation
@@ -141,6 +149,7 @@ const styles = StyleSheet.create({
     top: 41,
     width: 41,
     height: 41,
+
   },
   homeItem: {
     top: 105,
