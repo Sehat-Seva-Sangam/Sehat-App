@@ -1,9 +1,11 @@
 import * as React from "react";
 import { Text, StyleSheet, View } from "react-native";
-import { Image } from "react-native";
+import { Image, TouchableOpacity } from "react-native";
 import { FontSize, Color, FontFamily, Border } from "./GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
 
 const SignUp = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.signUp}>
       <Text style={[styles.newAccount, styles.signUp1FlexBox]}>
@@ -41,7 +43,9 @@ const SignUp = () => {
       </Text>
       <View style={[styles.groupParent, styles.groupParentLayout]}>
         <View style={[styles.rectangleWrapper, styles.groupChild1Layout]}>
+          <TouchableOpacity onPress={() => navigation.navigate("Home")} >
           <View style={[styles.groupChild1, styles.groupChild1Layout]} />
+          </TouchableOpacity>
         </View>
         <Text style={[styles.signUp1, styles.logInTypo]}>Sign Up</Text>
         <Text style={[styles.alreadyHaveAnContainer, styles.groupParentLayout]}>

@@ -73,11 +73,14 @@ const Home = () => {
           source={require("../assets/vector4.png")}
         />
       </Pressable>
+      <Pressable
+        onTouchStart={() => navigation.navigate("Profile")}>
       <Image
         style={[styles.vectorIcon5, styles.vectorIconPosition]}
         contentFit="cover"
         source={require("../assets/vector5.png")}
       />
+      </Pressable>
       <Image
         style={[styles.vectorIcon6, styles.vectorIconPosition]}
         contentFit="cover"

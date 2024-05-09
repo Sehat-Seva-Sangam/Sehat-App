@@ -12,6 +12,11 @@ import Schedule from "./screens/Schedule";
 import SelectFamily from "./screens/SelectFamily";
 import Details from "./screens/Details";
 import AppointmentSuccessful from "./screens/AppointmentSuccessful";
+import Profile from "./screens/Profile";
+import EditProfile from "./screens/EditProfile";
+import Family from "./screens/Family";
+import AddFamliy from "./screens/AddFamily";
+import GetVerified from "./screens/GetVerified";
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +51,11 @@ const App = () => {
           <Stack.Screen name="SelectFamily" component={SelectFamily} />
           <Stack.Screen name="Details" component={Details} />
           <Stack.Screen name="AppointmentSuccessful" component={AppointmentSuccessful} />
+          <Stack.Screen name="Profile" component={Profile} />
+          <Stack.Screen name="EditProfile" component={EditProfile} />
+          <Stack.Screen name="Family" component={Family} />
+          <Stack.Screen name="AddFamily" component={AddFamliy} />
+          <Stack.Screen name="GetVerified" component={GetVerified} />
         </Stack.Navigator>
       )}
     </NavigationContainer>
